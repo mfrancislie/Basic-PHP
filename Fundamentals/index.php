@@ -178,7 +178,7 @@
 
   include_once(class-oop.php);
 
-  $person = new person();
+  $person = new person;
   echo $person->$get_name();
   result: momo
 
@@ -186,8 +186,9 @@
   $person = new person();
   $person->set_name("francis");
   echo $person->$get_name();
-  
 
+  $boy = new person;
+  $boy->set_height("5'7");
   
 */
 

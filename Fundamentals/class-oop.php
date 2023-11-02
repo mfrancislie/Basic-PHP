@@ -15,4 +15,20 @@ class person {
 
 }
 
+class boy extends person {
+
+    var $height;
+
+  function set_height($new_height) {
+    $this->height = $new_height;
+
+  }  
+  
+  function get_height() {
+    return $this->height;
+
+  }  
+
+}
+
 ?>
