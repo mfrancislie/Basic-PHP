@@ -1,6 +1,6 @@
 <?php
   // 1 - Variables
-  $name = 'bossROD';
+  $name = 'bossitem';
   $age = 23;
   $gender = 'Male';
 
@@ -19,7 +19,7 @@
   echo '<br>';
 
   // 4 - Constant
-  define('MESSAGE', 'Thank you for watching bossROD TV');
+  define('MESSAGE', 'Thank you for watching bossitem TV');
   echo MESSAGE.'<br>';
 
   // 5 - Operators
@@ -33,9 +33,9 @@
   echo showMessage('Hello mga boss!').'<br>';
 
   // 7 - Arrays
-  $arr1 = ['boss', 'ROD', 'TV'];
-  $arr2 = array('a' => 'boss', 'ROD', 'TV');
-
+  $arr1 = ['boss', 'item', 'TV'];
+  $arr2 = array('a' => 'boss', 'item', 'TV');
+  
   print_r($arr1);
   echo '<br>';
   print_r($arr2);
@@ -43,12 +43,20 @@
   echo "arr1: $arr1[0] <br>";
   echo "arr2: $arr2[0] <br>";
 
+  $arr3 = [1,6,4,7,2,5,9,8, 10];//to fix the problem is to use sort()
+  /* 
+   sort() = automatic fix na sya by ascending 
+   rsort() = automatic fix na sya by descending
+  */
+  sort($arr3);
+
+
   // 8 - Conditions
-  // if (1 === '1') {
-  //   echo 'CORRECT <br>';
-  // } else {
-  //   echo 'WRONG <br>';
-  // }
+  if (1 === '1') {
+    echo 'CORRECT <br>';
+  } else {
+    echo 'WRONG <br>';
+  }
   
   echo 1 == 1 ? 'CORRECT <br>' : 'WRONG <br>';
 
@@ -64,39 +72,128 @@
   // 9 - Loops
   echo "WHILE <br>";
 
-  $rod1 = 1;
+  $item1 = 1;
 
-  while ($rod1 <= 4) {
-    echo "current rod1: $rod1 <br>";
+  while ($item1 <= 4) {
+    echo "current item1: $item1 <br>";
 
-    $rod1 = $rod1 + 1;
+    $item1 = $item1 + 1;
   }
 
   echo "DO WHILE <br>";
 
-  $rod2 = 1;
+  $item2 = 1;
 
   do {
-    echo "current rod2: $rod2 <br>";
+    echo "current item2: $item2 <br>";
 
-    $rod2 = $rod2 + 1;
-  } while ($rod2 <= 5);
+    $item2 = $item2 + 1;
+  } while ($item2 <= 5);
 
   echo "FOR <br>";
 
-  for ($rod3 = 0; $rod3 <= 5; $rod3++) {
-    echo "current rod3: $rod3 <br>";
+  for ($item3 = 0; $item3 <= 5; $item3++) {
+    echo "current item3: $item3 <br>";
   }
 
   echo "FOREACH <br>";
 
-  $rod4 = ["Code", "with", "boss", "ROD"];
+  $item4 = ["Code", "with", "boss", "item"];
 
-  foreach ($rod4 as $key => $value) {
-    echo "current rod4: $key-$value <br>";
+  foreach ($item4 as $key => $value) {
+    echo "current item4: $key-$value <br>";
   }
 
-  // 10 - Forms
+  
+  $data = array("mango", "apple", "orange");
+  // print_r($data);// print_r is for array
+  $total = count($data);
+
+  echo "The total data is ".$total;
+
+  for($i = 0; $i < $total; $i++){
+    echo $data[$i]. "<br/>";
+  }
+  
+  // Date and Time
+ 
+  echo date_default_timezone_get();
+  echo date('Y-m-d, h:i:s a');
+
+  // convert this given date
+  $date = "October 02, 2023 03:43:00 PM";
+  echo date('m/d/Y, H:i:s a', strtotime($date));
+
+
+  /* 
+  h - is for 12 hours
+  H - is for 24 hours or military time
+  i - is for minutes
+  s - is form leading zero
+  a - is for AM 
+  
+  date_default_timezone_get();
+  The defualt datetime is from Aurope/berlin
+
+
+  date_default_timezone_set('Asia/Manila');
+  To change datetime to philippine time is to use _set()
+
+  To convert this given date is to use strtotime()
+  $date = "October 02, 2023 03:43:00 PM";
+  echo date('m/d/Y, H:i:s a', strtotime($date))
+
+  */
+
+
+// Different between include() and include_once()
+/* 
+  For example include()
+
+  include(function.php);
+  include(function.php);
+
+  Ang Process ni php is kung ano yong nasa baba syan rin yong babasahin nya
+  which is yan yong pinagkaiba ni include()
+
+
+
+  For example include_once()
+
+  include_once(function.php);
+  include_once(function.php);
+  For example same lang yong ini include_once() na file, 
+  automatic ma didisregard yong nasa baba
+
+
+
+ */
+
+
+
+ // 10 - class and OOP
+
+/*  
+  this - is represent by class person 
+
+  include_once(class-oop.php);
+
+  $person = new person();
+  echo $person->$get_name();
+  result: momo
+
+  to update new name pwedi ra inganion
+  $person = new person();
+  $person->set_name("francis");
+  echo $person->$get_name();
+  
+
+  
+*/
+
+
+
+  // 11 - Forms
   $id = $_POST["id"];
 
   echo "id: $id <br>";
@@ -104,7 +201,7 @@
   $host = "localhost";
   $user = "root";
   $password = "";
-  $database = "bossROD";
+  $database = "bossitem";
   $port = 3307;
 
   $connection = mysqli_connect($host, $user, $password, $database, $port);
@@ -143,9 +240,10 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="/PHPTutorialbybossROD/index.php" method="POST">
+  <form action="/PHPTutorialbybossitem/index.php" method="POST">
     <input type="text" name="id" value="" />
     <input type="submit" value="Click" />
   </form>
 </body>
 </html>
+
